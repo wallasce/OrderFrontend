@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { NewCategoryComponent } from './new-category/new-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    NewCategoryComponent
   ],
   imports: [
     BrowserModule,

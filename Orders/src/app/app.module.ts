@@ -8,6 +8,13 @@ import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -15,12 +22,19 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
     CategoriesComponent,
     CategoryDetailsComponent,
     NewCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

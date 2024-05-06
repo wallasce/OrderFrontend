@@ -7,13 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { NewCategoryComponent } from './new-category/new-category.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
     CategoryDetailsComponent,
-    NewCategoryComponent
+    NewCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,

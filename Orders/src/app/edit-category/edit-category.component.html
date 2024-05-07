@@ -1,1 +1,11 @@
-<p>edit-category works!</p>
+<div>
+    <h3>Edit Category</h3>
+  </div>
+  <form class="edit-container" [formGroup]="categoryForm" (ngSubmit)="updateCategory(categoryForm.value)">
+    <mat-form-field>
+      <input matInput name="name" placeholder="Category's name" formControlName="name">
+    </mat-form-field>
+    <br>
+    <button type="submit" [disabled]="!categoryForm.valid" mat-button color="primary" >Editar</button>
+  </form>
+  

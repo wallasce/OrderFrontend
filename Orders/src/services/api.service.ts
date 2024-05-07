@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Category } from 'src/model/category';
 
 const apiUrl = 'https://localhost:7029/api/Categories';
+var httpOptions = {headers: new HttpHeaders({"Content-Type": "application/json"})};
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(apiUrl)
+    return this.http.get<Category[]>(apiUrl, httpOptions)
       .pipe(
         tap(categories => console.log("Retrieve Categories")),
         catchError(this.handleError('getCategories', []))
@@ -22,7 +23,7 @@ export class ApiService {
 
   getCategory(id: number): Observable<Category> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Category>(url)
+    return this.http.get<Category>(url, httpOptions)
       .pipe(
         tap(categories => console.log("Retrieve Categories")),
         catchError(this.handleError<Category>(`getCategory id=${id}`))
@@ -30,7 +31,7 @@ export class ApiService {
   }
 
   addCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(apiUrl, category).
+    return this.http.post<Category>(apiUrl, category, httpOptions).
       pipe(
         catchError(this.handleError<Category>("addCategory"))
       );
@@ -38,7 +39,7 @@ export class ApiService {
 
   updateCategory(id: number, category: Category): Observable<Category> {
     const url = `${apiUrl}/${id}`;
-    return this.http.put<Category>(url, category)
+    return this.http.put<Category>(url, category, httpOptions)
       .pipe(
         catchError(this.handleError<any>('Category Update'))
       );
@@ -46,7 +47,7 @@ export class ApiService {
 
   deleteCategory(id: number) : Observable<Category> {
     const url = `${apiUrl}/${id}`;
-    return this.http.delete<Category>(url)
+    return this.http.delete<Category>(url, httpOptions)
       .pipe(
         catchError(this.handleError<Category>('Category Delete'))
 

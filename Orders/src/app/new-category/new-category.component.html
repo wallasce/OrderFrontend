@@ -1,1 +1,13 @@
-<p>new-category works!</p>
+<div class="form">
+    <div>
+        <h3>Add new category</h3>
+    </div>
+    <form class="form-container" [formGroup]="formCategory" (ngSubmit)="addCategory(formCategory.value)">
+        <mat-form-field>
+            <input matInput name="name" placeholder="Category's Name" formControlName="name">
+        </mat-form-field>
+        <br>
+        <br>
+        <button type="submit" [disabled]="!formCategory.valid" mat-button color="primary"> Add </button>
+    </form>
+</div>
